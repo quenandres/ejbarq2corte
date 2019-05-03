@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="index.xhtml" />
+        <h:form id="fd">
+            <h:panelGrid columns="2">
+                <h:outputText value="idRifa" />
+                <p:inputText value="#{rifaBean.idRifa}" required="true" />
+                
+                <h:outputText value="maxParticipantes" />
+                <p:inputText value="#{rifaBean.maxParticipantes}" required="true" />
+               
+                <h:outputText value="forma_ganar" />
+                <p:selectOneMenu id="console" value="#{rifaBean.forma_ganar}" style="width:185px">
+                    <f:selectItem itemLabel="Loteria" itemValue="Loteria" />
+                    <f:selectItem itemLabel="Resultado de juego" itemValue="Juego" />
+                </p:selectOneMenu>
+                
+                <h:outputText value="premios" />
+                <p:inputText value="#{rifaBean.premios}" required="true" />
+              
+                 <h:outputText value=""/>
+                <p:commandButton actionListener="#{rifaBean.crear()}" value="Crear" update="fd" />
+            </h:panelGrid>
+           
+          
+            <p:dataTable value="#{rifaBean.rifa}" var="d">
+                <p:column headerText="idRifa">
+                    <h:outputText value="#{d.idRifa}" />
+                </p:column>
+                <p:column headerText="maxParticipantes">
+                    <h:outputText value="#{d.maxParticipantes}" />
+                </p:column>  
+                <p:column headerText="formaGanar">
+                    <h:outputText value="#{d.formaGanar}" />
+                </p:column>  
+                <p:column headerText="premios">
+                    <h:outputText value="#{d.premios}" />
+                </p:column> 
+            </p:dataTable>
+        </h:form> 
+    </h:body>
+</html>
+
