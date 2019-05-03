@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="index.xhtml" />
+        <h:form id="fe">
+            <h:panelGrid columns="2">
+                <h:outputText value="idEquipos" />
+                <p:inputText value="#{equipoBean.idEquipos}" required="true" />
+                
+                <h:outputText value="nombreEquipo" />
+                <p:inputText value="#{equipoBean.nombreEquipo}" required="true" />                
+                
+                <h:outputText value="idDeporte"/>
+                <p:selectOneMenu value="#{equipoBean.deporte.idDeporte}">
+                    <f:selectItems value="#{deporteBean.deporte}" var="d" itemLabel="#{d.nombreDeporte}" itemValue="#{d.idDeporte}" />
+                </p:selectOneMenu>
+                
+                <h:outputText value=""/>
+                <p:commandButton actionListener="#{equipoBean.crear()}" value="Crear" update="fe" />
+                
+            </h:panelGrid>
+            
+            <p:dataTable value="#{equipoBean.equipos}" var="e">
+                <p:column headerText="idEquipo">
+                    <h:outputText value="#{e.idEquipos}" />
+                </p:column>
+                <p:column headerText="nombreEquipo">
+                    <h:outputText value="#{e.nombreEquipo}" />
+                </p:column>
+                <p:column headerText="Deporte">
+                    <h:outputText value="#{e.idDeporte}" />
+                </p:column>
+                
+            </p:dataTable>            
+        </h:form>
+    </h:body>
+</html>
+
