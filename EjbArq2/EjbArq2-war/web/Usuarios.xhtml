@@ -22,7 +22,10 @@
                 <p:inputText value="#{usuarioBean.password}" required="true" />
                 
                 <h:outputText value="rol" />
-                <p:inputText value="#{usuarioBean.rol}" required="true" />                          
+                <p:selectOneMenu id="console" value="#{usuarioBean.rol}" style="width:185px">
+                    <f:selectItem itemLabel="Admin" itemValue="Admin" />
+                    <f:selectItem itemLabel="Taquillero" itemValue="Taquillero" />
+                </p:selectOneMenu>
                               
                 
                  <h:outputText value=""/>

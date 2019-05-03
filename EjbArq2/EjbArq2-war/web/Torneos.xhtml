@@ -25,7 +25,10 @@
                 <p:calendar id="mask2" value="#{torneoBean.fechaFin}" pattern="MM/dd/yyyy HH:mm:ss" mask="true" />
                 
                 <h:outputText value="partidosTorneo" />
-                <p:inputText value="#{torneoBean.partidosTorneo}" required="true" />
+                <p:selectOneMenu id="console" value="#{torneoBean.partidosTorneo}" style="width:185px">
+                    <f:selectItem itemLabel="Si" itemValue="Si" />
+                    <f:selectItem itemLabel="No" itemValue="No" />
+                </p:selectOneMenu>
                 
                 
                  <h:outputText value=""/>
