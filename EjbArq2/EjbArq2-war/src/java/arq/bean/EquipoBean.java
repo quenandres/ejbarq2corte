@@ -45,11 +45,9 @@ public class EquipoBean {
         Equipos c = new Equipos();
         c.setIdEquipos(idEquipos);
         c.setNombreEquipo(nombreEquipo);
-        //c.setIdDeporte(deporteFacade.find(deporte.getIdDeporte()));
+        //c.setIdDeporte(deporteFacade.find(deporte.getIdDeporte()));       
         
-        
-        equiposFacade.create(c);
-        
+        equiposFacade.create(c);        
         return "equipo";
     }
 
