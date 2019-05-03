@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="index.xhtml" />
+        <h:form id="fd">
+            <h:panelGrid columns="2">
+                <h:outputText value="idTorneo" />
+                <p:inputText value="#{torneoBean.idTorneo}" required="true" />
+                
+                <h:outputText value="nombreTorneo" />
+                <p:inputText value="#{torneoBean.nombreTorneo}" required="true" />
+
+                <p:outputLabel for="mask" value="fechaInicio" />
+                <p:calendar id="mask" value="#{torneoBean.fechaInicio}" pattern="MM/dd/yyyy HH:mm:ss" mask="true" />
+                
+                <p:outputLabel for="mask" value="fechaFin" />
+                <p:calendar id="mask2" value="#{torneoBean.fechaFin}" pattern="MM/dd/yyyy HH:mm:ss" mask="true" />
+                
+                <h:outputText value="equipos" />
+                <p:inputText value="#{torneoBean.partidosTorneo}" required="true" />
+                
+                
+                 <h:outputText value=""/>
+                <p:commandButton actionListener="#{torneoBean.crear()}" value="Crear" update="fd" />
+            </h:panelGrid>
+           
+          
+            <p:dataTable value="#{torneoBean.torneo}" var="d">
+                <p:column headerText="idTorneo">
+                    <h:outputText value="#{d.idTorneo}" />
+                </p:column>
+                <p:column headerText="nombreTorneo">
+                    <h:outputText value="#{d.nombreTorneo}" />
+                </p:column>  
+                <p:column headerText="fechaInicio">
+                    <h:outputText value="#{d.fechaInicio}" />
+                </p:column>  
+                <p:column headerText="fechaFin">
+                    <h:outputText value="#{d.fechaFin}" />
+                </p:column>  
+                <p:column headerText="partidosTorneo">
+                    <h:outputText value="#{d.partidosTorneo}" />
+                </p:column>  
+            </p:dataTable>
+        </h:form> 
+    </h:body>
+</html>
+
